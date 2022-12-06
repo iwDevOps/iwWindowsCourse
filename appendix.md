@@ -1,4 +1,4 @@
-![IceWarp Infra]([image_url](https://blog.icewarp.com/wp-content/uploads/2022/08/IW-Logo-Wide-4x.png))
+![IceWarp Infra](https://blog.icewarp.com/wp-content/uploads/2022/08/IW-Logo-Wide-4x.png)
 
 
 # APPENDIX
