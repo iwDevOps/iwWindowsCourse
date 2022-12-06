@@ -64,13 +64,14 @@ CREATE DATABASE asreports default charset utf8mb4 collate utf8mb4_unicode_ci;
 ```
 4.3)	Database User and Permissions Syntax
 ```sql	
-CREATE USER user@’<IP>’ IDENTIFIED WITH mysql_native_password BY <password>;
+CREATE USER user@’<IP>’ IDENTIFIED BY <password>;
 GRANT ALL PRIVILEGES on <database>.* TO <user>@’<IP>’;
 ```
 Example:
 ```sql
-CREATE USER iwdbuser@’127.0.0.1’ IDENTIFIED WITH mysql_native_password BY ‘password’;
-GRANT ALL PRIVILEGES on accounts.* TO iwdbuser@’127.0.0.1’;
+CREATE USER 'iwdbuser'@'127.0.0.1' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON accounts.* TO 'iwdbuser'@'127.0.0.1';
+FLUSH PRIVILEGES;
 ```
 
 ## - 5) Services with Powershell
