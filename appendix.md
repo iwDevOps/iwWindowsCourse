@@ -93,7 +93,7 @@ yoda: Fulltext engine for IceWarp
 yoda-scan: Fulltext engine for IceWarp - file scanner
 ```
 
-5.1 PowerShell function to Check if IIS or SMTP are running. You can use this function to check the status of any Windows service, not just IIS and Microsoft SMTP.
+5.1) PowerShell function to Check if IIS or SMTP are running. You can use this function to check the status of any Windows service, not just IIS and Microsoft SMTP.
 ```powershell
 	function IsServiceRunning([string]$serviceName) {
 	    $service = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
@@ -121,3 +121,26 @@ yoda-scan: Fulltext engine for IceWarp - file scanner
 	    Write-Host "Microsoft SMTP is not running"
 	}
 ```  
+5.2)  PowerShell function to Check if IIS or SMTP are running and remove them if they are. You can use this function to check the status of any Windows service, not just IIS and Microsoft SMTP.
+```Powershell
+function IsFeatureInstalled([string]$featureName) {
+    $feature = Get-WindowsFeature -Name $featureName | Where-Object {$_.Installed -eq $true}
+
+    if ($feature -ne $null) {
+        return $true
+    }
+    else {
+        return $false
+    }
+}
+
+# Example usage:
+if (IsFeatureInstalled("Web-Server")) {
+    Write-Host "Uninstalling IIS..."
+    Uninstall-WindowsFeature -Name "Web-Server" -Restart
+    Write-Host "IIS has been uninstalled."
+}
+else {
+    Write-Host "IIS is not installed."
+}
+```
