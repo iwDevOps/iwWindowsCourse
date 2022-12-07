@@ -7,5 +7,6 @@ Having some exposure to DNS and networking protocols would be good but not neces
 The aim of this course is to go through all the steps of installing an IceWarp solution. 
 
 We will:
-* install and configure the databases
-* install IceWarp and connect them. 
+* Install and configure the databases
+* Install IceWarp
+* Connect IceWarp to the databases 
