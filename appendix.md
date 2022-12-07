@@ -66,8 +66,8 @@ CREATE DATABASE asreports default charset utf8mb4 collate utf8mb4_unicode_ci;
 ```
 4.3)	Database User and Permissions Syntax
 ```sql	
-CREATE USER user@’<IP>’ IDENTIFIED BY <password>;
-GRANT ALL PRIVILEGES on <database>.* TO <user>@’<IP>’;
+CREATE USER user@'<IP>' IDENTIFIED BY <password>;
+GRANT ALL PRIVILEGES on <database>.* TO <user>@'<IP>';
 ```
 Example:
 ```sql
