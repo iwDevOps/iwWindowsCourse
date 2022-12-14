@@ -52,7 +52,7 @@
 
 ```  
 
-## - 4) Databases
+## - 4. Databases
  4.1)	[MySQL libraries for Windows](https://support.icewarp.com/hc/en-us/article_attachments/360018704398/libraries_mysql_6.1.zip)
 
  4.2)	Creating the seven Databases for IceWarp
