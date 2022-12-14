@@ -2,11 +2,6 @@
 
 # APPENDIX
 
-# Table of Contents
-## Download Resources
-### Examples 
-
-
 ## - 1. Download links and other URLs
 1.1) [MariaDB](https://mariadb.org/download)
 
