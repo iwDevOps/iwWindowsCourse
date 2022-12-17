@@ -27,8 +27,7 @@ New-ADUser -Name "John D" -GivenName "John" -Surname "Doe" -SamAccountName "jdoe
  New-ADObject -Name "SaraDavisContact2" -Type "contact" -ProtectedFromAccidentalDeletion $True -OtherAttributes @{"mail"="sarah@gmail.com"}
  New-ADObject -Name "SaraDavisContact3" -Type "contact" -Path "OU=mydomain4,DC=iw,dc=inc"  -OtherAttributes @{'mail'="sarah3@gmail.com"}
  
- # Loop to create a Contact object
- 
+# Create Contact objects with email addresses using a for loop
 $firstNames = "John", "Jane", "Bob", "Alice", "Tom", "Emily", "Chris", "Sara", "Mike", "Liz"
 $lastNames = "Doe", "Smith", "Williams", "Johnson", "Jones", "Brown", "Miller", "Davis", "Garcia", "Rodriguez"
 $emailDomains = "gmail.com", "yahoo.com", "outlook.com"
