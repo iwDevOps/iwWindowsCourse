@@ -1,11 +1,17 @@
-# Add Users to the mydomain OU
+# Create a PowerShell Profile for current user. Should add it to Documents folder
+New-Item $PROFILE.CurrentUserAllHosts -ItemType File -Force
 
+# Add this to Powershell Profile. 
+## Function or Alias to call tool.exe from anywhere on the system 
+function iwtool.exe { C:\'Program Files\IceWarp\tool.exe' $args }
+
+# Add 10 Users to the mydomain OU with the first 10 letters of the alphabet
 $alphabet = "ABCDEFGHIJ"
 
 for ($i=0; $i -lt 10; $i++) {
     $letter = $alphabet[$i]
     $username = $letter+$i + "_user" 
-    $email = $username + "@mydomain2.com"
+    $email = $username + "@mydomain.com"
 
     New-ADUser -Name $username -SamAccountName $username -UserPrincipalName $email -EmailAddress $email -Path "OU=mydomain,DC=iw,DC=inc" -AccountPassword (ConvertTo-SecureString -AsPlainText "1password2?" -Force) -Enabled $true -ChangePasswordAtLogon $true
 }
