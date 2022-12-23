@@ -53,11 +53,27 @@
 ```  
 
 ## - 4. Databases
- 4.0) 	Silent installation using the MSI installer 
+### Installing MariaDB 
+
+ 1) 	Silent installation using the MSI installer 
  ```powershell
- msiexec.exe /i mariadb-10.8.6-winx64.msi remove=HeidiSQL PASSWORD=******* PORT=3306 SERVICENAME=MariaDB addlocal=all /passive
+ msiexec.exe /i mariadb-10.8.6-winx64.msi remove=HeidiSQL PASSWORD=*** PORT=3306 SERVICENAME=MariaDB addlocal=all /passive
  ```
- 
+ 2) 	Silent removing using the MSI installer 
+
+```powershell
+ msiexec.exe /i mariadb-10.8.6-winx64.msi remove=all /qn 
+```
+3) Check is MariaDB service is running
+
+```powershell
+ get-service -name "mariadb"
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  MariaDB            mariadb
+```
+
  4.1)	[MySQL libraries for Windows](https://support.icewarp.com/hc/en-us/article_attachments/360018704398/libraries_mysql_6.1.zip)
 
  4.2)	Creating the seven Databases for IceWarp
