@@ -56,6 +56,7 @@
 ### Installing MariaDB 
 
  1) 	Silent installation using the MSI installer 
+ 
  ```powershell
  msiexec.exe /i mariadb-10.8.6-winx64.msi remove=HeidiSQL PASSWORD=*** PORT=3306 SERVICENAME=MariaDB addlocal=all /passive
  ```
