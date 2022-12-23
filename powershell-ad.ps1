@@ -40,3 +40,17 @@ for ($i = 0; $i -lt 10; $i++) {
     New-ADObject -Type Contact -Name "$firstName $lastName" -Path "OU=mydomain4,DC=iw,DC=inc" -OtherAttributes @{'mail'="$($firstName.Substring(0, 1))$($lastName)@$emailDomain"}
 }
  
+# Firewall Rules 
+New-NetFirewallRule -DisplayName "IceWarp HTTPs" -Name "IceWarp HTTPs" -Protocol TCP -LocalPort 443 -Group IW -Action Allow -Profile Any
+
+# List Enabled ports for the Group IW
+Get-NetFirewallRule -DisplayGroup '*IW*' |
+Format-Table -Property Name,
+DisplayName,
+DisplayGroup,
+@{Name='Protocol';Expression={($PSItem | Get-NetFirewallPortFilter).Protocol}},
+@{Name='LocalPort';Expression={($PSItem | Get-NetFirewallPortFilter).LocalPort}},
+Enabled,
+Profile,
+Direction,
+Action
