@@ -7,13 +7,14 @@
 
 ## PowerShell Profile
 ```powershell
-# Create a PowerShell Profile for current user. Should add profile.ps1 file to Documents\Powershell folder
+# Creates a PowerShell Profile for current user - \Documents\PowerShell\profile.ps1 
 New-Item $PROFILE.CurrentUserAllHosts -ItemType File -Force
 ```
-### Add this function to Powershell Profile. 
-### Function or Alias to call tool.exe from anywhere on the system 
+### Add 'iwtool' function to \Documents\PowerShell\profile.ps1
+
 ```powershell
-function iwtool.exe { C:\'Program Files\IceWarp\tool.exe' $args }
+# Call tool.exe from anywhere on the system 
+function iwtool { C:\'Program Files\IceWarp\tool.exe' $args }
 ```
 
 ## Active Directory 
