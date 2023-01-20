@@ -6,8 +6,8 @@
 # PowerShell  Boilerplate
 
 ## PowerShell Profile
-### Create a PowerShell Profile for current user. Should add profile.ps1 file to Documents\Powershell folder
 ```powershell
+# Create a PowerShell Profile for current user. Should add profile.ps1 file to Documents\Powershell folder
 New-Item $PROFILE.CurrentUserAllHosts -ItemType File -Force
 ```
 ### Add this function to Powershell Profile. 
