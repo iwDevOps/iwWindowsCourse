@@ -54,3 +54,6 @@ Enabled,
 Profile,
 Direction,
 Action
+
+# Install Windows Server Backup Feature
+Install-WindowsFeature -Name Windows-Server-Backup
