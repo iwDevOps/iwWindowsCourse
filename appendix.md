@@ -106,6 +106,14 @@ Running  MariaDB            mariadb
 ```
 
  4.1)	[MySQL libraries for Windows](https://support.icewarp.com/hc/en-us/article_attachments/360018704398/libraries_mysql_6.1.zip)
+ 
+ ```powershell
+# System32 libmysql.dll into System32 folder
+Invoke-WebRequest "https://support.icewarp.com/hc/en-us/article_attachments/7766835610641/libmysql.dll" -OutFile "C:\Windows\System32\libmysql.dll"
+
+# SysWOW64 libmysql.dll into SysWOW64 folder
+invoke-webrequest "https://support.icewarp.com/hc/en-us/article_attachments/7766970246929/libmysql.dll" -outfile "C:\Windows\SysWOW64\libmysql.dll"
+```
 
  4.2)	Creating the seven Databases for IceWarp
 ```sql
