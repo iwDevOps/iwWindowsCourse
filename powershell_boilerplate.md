@@ -78,9 +78,20 @@ Profile,
 Direction,
 Action
 ```
+### Output example
+```powershell
+Name          DisplayName   DisplayGroup Protocol LocalPort RemotePort RemoteAddress Enabled Profile Direction Action
+----          -----------   ------------ -------- --------- ---------- ------------- ------- ------- --------- ------
+IceWarp HTTPs IceWarp HTTPs IW           TCP      443       Any        Any              True     Any   Inbound  Allow
+```
 
 ## Windows Backups
 ### Enable Windows Backup feature 
 ```powershell
 Install-WindowsFeature -Name Windows-Server-Backup
+```
+## Windows DNS 
+### Export zone to C:\Windows\System32\dns
+```powershell
+Export-DnsServerZone "iwdevops.local" "iwdevops.local.bak"
 ```
