@@ -81,79 +81,6 @@ FLUSH PRIVILEGES;
 
 ```  
 
-<<<<<<< HEAD
-## - 5) Services with Powershell
-```powershell
-# Function is like an alias for IceWarp Control 
-function iwctrl {Get-Service -name IceWarpControl}
-# Then we can start, stop, or restart by calling the function 
-iwctrl | Start-Service
-iwctrl | Stop-Service
-iwctrl | Restart-Service
-```
-```plaintext
-# IceWarp services as they appear in Windows 
-IceWarpCalendar: Provides support for GroupWare.
-IceWarpControl: Provides support for remote administration, web and ftp services.
-IceWarpIM: Provides support for Instant Messaging and VoIP.
-IceWarpPOP3: Provides support for POP3 and IMAP protocols.
-IceWarpSMTP: Provides support for MTA and SMTP protocol.
-yoda: Fulltext engine for IceWarp
-yoda-scan: Fulltext engine for IceWarp - file scanner
-```
-
-5.1) PowerShell function to Check if IIS or SMTP are running. You can use this function to check the status of any Windows service, not just IIS and Microsoft SMTP.
-```powershell
-	function IsServiceRunning([string]$serviceName) {
-	    $service = Get-Service -Name $serviceName -ErrorAction SilentlyContinue
-      
-	    if ($service -ne $null) {
-	        return $true
-	    }
-	    else {
-	        return $false
-	    }
-	}
-
-	# Example usage:
-	if (IsServiceRunning("w3svc")) {
-	    Write-Host "IIS is running"
-	}
-	else {
-	    Write-Host "IIS is not running"
-	}
-
-	if (IsServiceRunning("SMTPSVC")) {
-	    Write-Host "Microsoft SMTP is running"
-	}
-	else {
-	    Write-Host "Microsoft SMTP is not running"
-	}
-```  
-5.2)  PowerShell function to Check if IIS or SMTP are running and remove them if they are. You can use this function to check the status of any Windows service, not just IIS and Microsoft SMTP.
-```Powershell
-function IsFeatureInstalled([string]$featureName) {
-    $feature = Get-WindowsFeature -Name $featureName | Where-Object {$_.Installed -eq $true}
-
-    if ($feature -ne $null) {
-        return $true
-    }
-    else {
-        return $false
-    }
-}
-
-# Example usage:
-if (IsFeatureInstalled("Web-Server")) {
-    Write-Host "Uninstalling IIS..."
-    Uninstall-WindowsFeature -Name "Web-Server" -Restart
-    Write-Host "IIS has been uninstalled."
-}
-else {
-    Write-Host "IIS is not installed."
-}
-```
-
 =======
 ## - 4. Databases
 ### Installing MariaDB 
@@ -201,5 +128,3 @@ CREATE USER 'iwdbuser'@'127.0.0.1' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON accounts.* TO 'iwdbuser'@'127.0.0.1';
 FLUSH PRIVILEGES;
 ```
-
->>>>>>> 31bf7073911c13cc93ab0423f2b1f86f6abc617b
