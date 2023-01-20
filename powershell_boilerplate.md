@@ -5,7 +5,7 @@
 
 # PowerShell  Boilerplate
 
-## Profile
+## PowerShell Profile
 ### Create a PowerShell Profile for current user. Should add profile.ps1 file to Documents\Powershell folder
 ```powershell
 New-Item $PROFILE.CurrentUserAllHosts -ItemType File -Force
@@ -18,16 +18,18 @@ function iwtool.exe { C:\'Program Files\IceWarp\tool.exe' $args }
 
 ## Active Directory 
 
-### Create an OU in Active Directory
+### Create Organizational Unit (OU)
 ```powershell
 new-adorganizationalunit -name "mydomain2" -path "DC=iw,DC=inc"
 ```
-### Users - Create one user 
+### Users
 ```powershell
+# Create one user
 New-ADUser -Name "John D" -GivenName "John" -Surname "Doe" -SamAccountName "jdoe" -UserPrincipalName "jdoe@iwdevops.net" -EmailAddress "jdoe@iwdevops.net" -Path "OU=mydomain,DC=iw,DC=inc" -AccountPassword (ConvertTo-SecureString -AsPlainText "password" -Force) -Enabled $true -ChangePasswordAtLogon $false
 ```
-### Add 10 Users to the mydomain OU with the first 10 letters of the alphabet
+### Add 10 Users 
 ```powershell
+# Add 10 Users to the mydomain OU with the first 10 letters of the alphabet
 $alphabet = "ABCDEFGHIJ"
 
 for ($i=0; $i -lt 10; $i++) {
@@ -39,14 +41,16 @@ for ($i=0; $i -lt 10; $i++) {
 }
 ```
 
-### Contacts - Create a contact with an email address 
+### Create one Contact 
 ```powershell
+# Create a contact with an email address 
 New-ADObject -Name "SaraDavisContact2" -Type "contact" -ProtectedFromAccidentalDeletion $True -OtherAttributes @{"mail"="sarah@gmail.com"}
 New-ADObject -Name "SaraDavisContact3" -Type "contact" -Path "OU=mydomain4,DC=iw,dc=inc"  -OtherAttributes @{'mail'="sarah3@gmail.com"}
 ```
 
-### Create Contact objects with email addresses using a for loop
+### For loop to Create 10 Contacts
 ```powershell
+# Create Contact objects with email addresses using a for loop
 $firstNames = "John", "Jane", "Bob", "Alice", "Tom", "Emily", "Chris", "Sara", "Mike", "Liz"
 $lastNames = "Doe", "Smith", "Williams", "Johnson", "Jones", "Brown", "Miller", "Davis", "Garcia", "Rodriguez"
 $emailDomains = "gmail.com", "yahoo.com", "outlook.com"
@@ -59,6 +63,11 @@ for ($i = 0; $i -lt 10; $i++) {
     New-ADObject -Type Contact -Name "$firstName $lastName" -Path "OU=mydomain4,DC=iw,DC=inc" -OtherAttributes @{'mail'="$($firstName.Substring(0, 1))$($lastName)@$emailDomain"}
 }
 ``` 
+### Add Photo to user object. Admin poweshell session
+```powershell
+$photo = [byte[]](Get-Content photo.png -Encoding byte)
+Set-ADUser <ADUser> -Replace @{thumbnailPhoto=$photo}
+```
 
 ## Firewall
 ### Add a Rule 
