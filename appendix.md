@@ -22,34 +22,7 @@
 
  2.4) [IceWarp recommended network ports](https://support.icewarp.com/hc/en-us/articles/6808711405585-IceWarp-recommended-network-ports)
 
-## - 3) Databases
- 4.1)	[MySQL libraries for Windows](https://support.icewarp.com/hc/en-us/article_attachments/360018704398/libraries_mysql_6.1.zip)
-
- 4.2)	Creating the seven Databases for IceWarp
-```sql
-CREATE DATABASE accounts default charset utf8mb4 collate utf8mb4_unicode_ci;
-CREATE DATABASE antispam default charset utf8mb4 collate utf8mb4_unicode_ci;
-CREATE DATABASE groupware default charset utf8mb4 collate utf8mb4_unicode_ci;
-CREATE DATABASE webclient default charset utf8mb4 collate utf8mb4_unicode_ci;
-CREATE DATABASE eas default charset utf8mb4 collate utf8mb4_unicode_ci;
-CREATE DATABASE dircache default charset utf8mb4 collate utf8mb4_unicode_ci;
-CREATE DATABASE asreports default charset utf8mb4 collate utf8mb4_unicode_ci;
-```
-4.3)	Database User and Permissions Syntax
-```sql	
-CREATE USER user@'<IP>' IDENTIFIED BY <password>;
-GRANT ALL PRIVILEGES on <database>.* TO <user>@'<IP>';
-```
-Example:
-```sql
-CREATE USER 'iwdbuser'@'127.0.0.1' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON accounts.* TO 'iwdbuser'@'127.0.0.1';
-FLUSH PRIVILEGES;
-```
-
-
-
-## - 4) Reference 
+## - 3. Reference 
 3.1) DNS Example settings for domain example.com and IceWarp server with IP 66.77.88.99 
 ```s
 ; SOA Record
@@ -81,24 +54,27 @@ FLUSH PRIVILEGES;
 
 ```  
 
-=======
 ## - 4. Databases
 ### Installing MariaDB 
 
  1) Silent installation using the MSI installer 
  ```powershell
- msiexec.exe /i mariadb-10.6.11-winx64.msi remove=HeidiSQL PASSWORD=*** PORT=3306 SERVICENAME=MariaDB addlocal=all /passive
+ msiexec.exe /i mariadb-10.8.6-winx64.msi remove=HeidiSQL PASSWORD=*** PORT=3306 SERVICENAME=MariaDB addlocal=all /passive
  ```
  
  2) Silent removing using the MSI installer 
 ```powershell
- msiexec.exe /i mariadb-10.6.11-winx64.msi remove=all /qn 
+ msiexec.exe /i mariadb-10.8.6-winx64.msi remove=all /qn 
 ```
 
 3) Check is MariaDB service is running
+```powershell
+get-service -name "mariadb"
+```
 
 ```powershell
- get-service -name "mariadb"
+Example output:
+get-service -name "mariadb"
 
 Status   Name               DisplayName
 ------   ----               -----------
@@ -106,14 +82,15 @@ Running  MariaDB            mariadb
 ```
 
  4.1)	[MySQL libraries for Windows](https://support.icewarp.com/hc/en-us/article_attachments/360018704398/libraries_mysql_6.1.zip)
- 
- ```powershell
+
+```powershell
 # System32 libmysql.dll into System32 folder
 Invoke-WebRequest "https://support.icewarp.com/hc/en-us/article_attachments/7766835610641/libmysql.dll" -OutFile "C:\Windows\System32\libmysql.dll"
 
 # SysWOW64 libmysql.dll into SysWOW64 folder
 invoke-webrequest "https://support.icewarp.com/hc/en-us/article_attachments/7766970246929/libmysql.dll" -outfile "C:\Windows\SysWOW64\libmysql.dll"
 ```
+
 
  4.2)	Creating the seven Databases for IceWarp
 ```sql
