@@ -1,4 +1,5 @@
-[Home](README.md)  |  [Appendix](appendix.md) | [PowerShell AD Boilerplate](powershell_boilerplate.md)
+[Home](README.md)  |  [Appendix](appendix.md) | [PowerShell AD Boilerplate](powershell_boilerplate.md)  | 
+[GitHub Repo](https://github.com/iwDevOps/iwWindowsCourse)
 
 ![IceWarp Infra](https://blog.icewarp.com/wp-content/uploads/2022/08/IW-Logo-Wide-4x.png)
 
