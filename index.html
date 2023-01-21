@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>JavaScript Fundamentals Quiz</title>
+</head>
+
+<body>
+    <header class="header">
+        <p class="high-score">View High Scores</p>
+        <p id="timer"></p>
+    </header>
+    <main>
+        <section class="intro-section">
+            <h1 class="quiz-title">Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers will penalize your score/time by ten seconds!</p>
+            <button class="btn" id="start-quiz">Start Quiz</button>
+        </section>
+        <section class="question-section display">
+            <h1 id="question-title">Commonly used data types DO NOT include:</h1>
+            <ul id="questions">
+                <li><button class="answers" id="a">1. strings</button></li>
+                <li><button class="answers" id="b">2. booleans</button></li>
+                <li><button class="answers" id="c">3. alerts</button></li>
+                <li><button class="answers" id="d">4. numbers</button></li>
+            </ul>
+            <p id="border">______________________</p>
+            <p id="answers"></p>
+        </section>
+        <section class="high-score-section display">
+            <h1 id="all-done">All done!</h1>
+            <p id="final-score">Your final score is: </p>
+            <div class="initial-entry">
+                <label for="initials">Enter initials:</label>
+                <input type="text" id="initials">
+                <button id="submit">Submit</button>
+            </div>
+        </section>
+        <section class="dashboard-section display">
+            <h1 id="score-title">High Scores</h1>
+            <ol id="score-results"></ol>
+            <button id="go-back">Go Back</button>
+        </section>
+    </main>
+    <!-- Link to JavaScript -->
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
