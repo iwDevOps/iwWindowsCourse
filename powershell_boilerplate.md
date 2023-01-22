@@ -45,14 +45,13 @@ for ($i=0; $i -lt 10; $i++) {
 ### Create one Contact 
 ```powershell
 # Create a contact with an email address 
-New-ADObject -Name "SaraDavisContact2" -Type "contact" -ProtectedFromAccidentalDeletion $True -OtherAttributes @{"mail"="sarah@gmail.com"}
-New-ADObject -Name "SaraDavisContact3" -Type "contact" -Path "OU=mydomain4,DC=iw,dc=inc"  -OtherAttributes @{'mail'="sarah3@gmail.com"}
+New-ADObject -Name "Customer1" -Type "contact" -Path "OU=mydomain4,DC=iw,dc=inc"  -OtherAttributes @{'mail'="customer@gmail.com"}
 ```
 
 ### For loop to Create 10 Contacts
 ```powershell
 # Create Contact objects with email addresses using a for loop
-$firstNames = "John", "Jane", "Bob", "Alice", "Tom", "Emily", "Chris", "Sara", "Mike", "Liz"
+$firstNames = "Kuba", "Otto", "Tomas", "Tom", "Adam", "Martineta", "Peter", "Steve", "Mike", "Mara"
 $lastNames = "Doe", "Smith", "Williams", "Johnson", "Jones", "Brown", "Miller", "Davis", "Garcia", "Rodriguez"
 $emailDomains = "gmail.com", "yahoo.com", "outlook.com"
 
@@ -73,7 +72,22 @@ Set-ADUser <ADUser> -Replace @{thumbnailPhoto=$photo}
 ## Firewall
 ### Add a Rule 
 ```powershell
+# HTTP (80, 443)
+New-NetFirewallRule -DisplayName "IceWarp HTTP" -Name "IceWarp HTTP" -Protocol TCP -LocalPort 80 -Group IW -Action Allow -Profile Any
 New-NetFirewallRule -DisplayName "IceWarp HTTPs" -Name "IceWarp HTTPs" -Protocol TCP -LocalPort 443 -Group IW -Action Allow -Profile Any
+# SMTP (25,465,587)
+New-NetFirewallRule -DisplayName "IceWarp SMTP" -Name "IceWarp SMTP" -Protocol TCP -LocalPort 25 -Group IW -Action Allow -Profile Any
+New-NetFirewallRule -DisplayName "IceWarp SMTPs" -Name "IceWarp SMTPs" -Protocol TCP -LocalPort 465 -Group IW -Action Allow -Profile Any
+New-NetFirewallRule -DisplayName "IceWarp SMTP" -Name "IceWarp SMTP" -Protocol TCP -LocalPort 587 -Group IW -Action Allow -Profile Any
+# IMAP (143, 993)
+New-NetFirewallRule -DisplayName "IceWarp IMAP" -Name "IceWarp IMAP" -Protocol TCP -LocalPort 143 -Group IW -Action Allow -Profile Any
+New-NetFirewallRule -DisplayName "IceWarp IMAPs" -Name "IceWarp IMAPs" -Protocol TCP -LocalPort 993 -Group IW -Action Allow -Profile Any
+# POP (110, 995)
+New-NetFirewallRule -DisplayName "IceWarp POP" -Name "IceWarp POP" -Protocol TCP -LocalPort 110 -Group IW -Action Allow -Profile Any
+New-NetFirewallRule -DisplayName "IceWarp POPs" -Name "IceWarp POPs" -Protocol TCP -LocalPort 995 -Group IW -Action Allow -Profile Any
+# Instant Messaging XMPP (5222, 5223)
+New-NetFirewallRule -DisplayName "IceWarp XMPP" -Name "IceWarp XMPP" -Protocol TCP -LocalPort 5222 -Group IW -Action Allow -Profile Any
+New-NetFirewallRule -DisplayName "IceWarp XMPPs" -Name "IceWarp XMPPs" -Protocol TCP -LocalPort 5223 -Group IW -Action Allow -Profile Any
 ```
 ### List Enabled ports for the Group IW
 ```powershell
@@ -104,4 +118,12 @@ Install-WindowsFeature -Name Windows-Server-Backup
 ### Export zone to C:\Windows\System32\dns
 ```powershell
 Export-DnsServerZone "iwdevops.local" "iwdevops.local.bak"
+```
+## Single Sign-On
+```powershell
+$protocol = @("IMAP", "SMTP", "HTTP")
+$domain.low = "iwdevops.net"
+$domain.up = "IWDEVOPS.NET"
+$user_SPN = @("imap_sso", "smtp_sso", "http_sso") 
+ktpass out c:\HTTP#mail.iwdevops.net@IWDEVOPS.NET -princ HTTP/mail.iwdevops.net@IWDEVOPS.NET -mapUser http_sso mapOp set pass * -ptype KRB5_NT_PRINCIPAL
 ```
