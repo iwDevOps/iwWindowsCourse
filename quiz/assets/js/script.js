@@ -28,44 +28,44 @@ var dashboardSection = document.querySelector(".dashboard-section");
 /* QUESTION ARRAY: (questions provided by courses.bootcampspot.com)*/
 const questionArr = [
     {
-        text: 'Commonly used data types DO NOT include:',
-        a: '1. strings',
-        b: '2. booleans',
-        c: '3. alerts',
-        d: '4. numbers',
-        answer: '3. alerts'
+        text: 'How many main parts does Icewarp server architecture consist of?:',
+        a: '1. 5',
+        b: '2. 4',
+        c: '3. 3',
+        d: '4. 6',
+        answer: '3. 3'
     },
     {
-        text: 'The condition in an if/else statement is enclosed with ____.',
-        a: '1. quotes',
-        b: '2. curly braces',
-        c: '3. parenthesis',
-        d: '4. square brackets',
-        answer: '2. curly braces'
+        text: 'What tool can be used to connect to a port of a service to see the response from the service?',
+        a: '1. nslookup',
+        b: '2. netstat',
+        c: '3. ping',
+        d: '4. telnet',
+        answer: '4. telnet'
     },
     {
-        text: 'Arrays in JavaScript can be used to store ____.',
-        a: '1. numbers and strings',
-        b: '2. other arrays',
-        c: '3. booleans',
-        d: '4. all of the above',
-        answer: '4. all of the above'
+        text: 'Autodiscover is:',
+        a: '1. A tool that assists with VoIP setup',
+        b: '2. A tool that evaluates your server’s performance',
+        c: '3. A tool that evaluates your network settings and optimises them',
+        d: '4. A tool that assists with service discovery and automatic client setup',
+        answer: '4. A tool that assists with service discovery and automatic client setup'
     },
     {
-        text: 'String values must be enclosed within ____ when being assigned to variables.',
-        a: '1. commas',
-        b: '2. curly braces',
-        c: '3. quotes',
-        d: '4. parentheses',
-        answer: '3. quotes'
+        text: 'SMTP runs by default on ports:',
+        a: '1. 25 and 143',
+        b: '2. 25 and 443',
+        c: '3. 25, 465, and 587',
+        d: '4. 22, 143, and 993',
+        answer: '3. 25, 465, and 587'
     },
     {
-        text: 'A very useful tool used during development and debugging for printing content to the debugger is:',
-        a: '1. JavaScript',
-        b: '2. terminal/bash',
-        c: '3. for loops',
-        d: '4. console log',
-        answer: '4. console log'
+        text: 'SNI or Server Name Indication is:',
+        a: '1. A technology that provides hostname and certificate pairing so that clients get a certificate for the correct hostname',
+        b: '2. A technology that a certificate cannot be abused by a 3rd party',
+        c: '3. A watchdog technology that checks service status',
+        d: '4. A technology used for server clustering',
+        answer: '1. A technology that provides hostname and certificate pairing so that clients get a certificate for the correct hostname'
     },
 ]
 
