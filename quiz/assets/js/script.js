@@ -33,7 +33,7 @@ const questionArr = [
         b: '4',
         c: '3',
         d: '6',
-        answer: '3. 3'
+        answer: '3'
     },
     {
         text: 'What tool can be used to connect to a port of a service to see the response from the service?',
