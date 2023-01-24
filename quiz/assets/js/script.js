@@ -29,10 +29,10 @@ var dashboardSection = document.querySelector(".dashboard-section");
 const questionArr = [
     {
         text: 'How many main parts does Icewarp server architecture consist of?:',
-        a: '1. 5',
-        b: '2. 4',
-        c: '3. 3',
-        d: '4. 6',
+        a: '5',
+        b: '4',
+        c: '3',
+        d: '6',
         answer: '3. 3'
     },
     {
