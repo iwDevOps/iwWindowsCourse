@@ -10,7 +10,7 @@
 # Creates a PowerShell Profile for current user - \Documents\PowerShell\profile.ps1 
 New-Item $PROFILE.CurrentUserAllHosts -ItemType File -Force
 ```
-### Add 'iwtool' function to \Documents\PowerShell\profile.ps1
+### IceWarp Functions 'iwtool'
 
 ```powershell
 # Call tool.exe from anywhere on the system 
