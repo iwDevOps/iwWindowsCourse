@@ -121,9 +121,9 @@ Export-DnsServerZone "iwdevops.local" "iwdevops.local.bak"
 ```
 ## Single Sign-On
 ```powershell
-$protocol = @("IMAP", "SMTP", "HTTP")
+$protocol = @("imap", "smtp", "xmpp", "HTTP")
 $domain.low = "iwdevops.net"
 $domain.up = "IWDEVOPS.NET"
-$user_SPN = @("imap_sso", "smtp_sso", "http_sso") 
-ktpass out c:\HTTP#mail.iwdevops.net@IWDEVOPS.NET -princ HTTP/mail.iwdevops.net@IWDEVOPS.NET -mapUser http_sso mapOp set pass * -ptype KRB5_NT_PRINCIPAL
+$user_SPN = @("imap_sso", "smtp_sso", "xmpp_sso", "http_sso") 
+ktpass out c:\$protocol#mail.$domain.low@$domain.up -princ $protocol/mail.$domain.low@$domain.up -mapUser $user_SPN mapOp set pass * -ptype KRB5_NT_PRINCIPAL
 ```
